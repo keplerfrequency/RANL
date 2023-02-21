@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+    <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+  </head>
+  <body>
+    
+  <div id="map"></div>
+
+
+    <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script>
+      // Creating map options
+      var mapOptions = {
+      center: [52.2, 5.5],
+      zoom: 8
+      };
+
+      // Creating a map object
+      let map = new L.map("map", mapOptions);
+      
+      // Creating a Layer object
+      var layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+      
+      // Adding layer to the map
+      map.addLayer(layer);
+
+      let marker = new L.Marker([50.85022354126,5.694001197815]).bindPopup('https://partyflock.nl/jumpto/presence/700797').on('click', function() { alert('Clicked on a member of the group!'); }).addTo(map);
+      
+      let marker_1 = new L.Marker([51.35022354126,5.894001197815]);
+      marker_1.addTo(map);
+    </script>
+
+  </body>
+</html>
